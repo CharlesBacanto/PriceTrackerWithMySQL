@@ -12,8 +12,13 @@ namespace PriceTrackerWithMySQL.Controllers
         {
             _context = context;
         }
-        public IActionResult IndexPrice()
+        public IActionResult IndexPrice(string? searchTag)
         {
+            var searchInDb = _context.TblPrice.Where(dataInDb => dataInDb.description.Contains(searchTag));
+            var searchPrice = searchInDb.ToList();
+            if (!string.IsNullOrEmpty(searchTag)) {
+                return View(searchPrice);
+            }
             var allPrices = _context.TblPrice.ToList();
             return View(allPrices);
         }  
