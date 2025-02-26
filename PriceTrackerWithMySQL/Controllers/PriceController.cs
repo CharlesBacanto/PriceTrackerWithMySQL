@@ -17,9 +17,13 @@ namespace PriceTrackerWithMySQL.Controllers
             var allPrices = _context.TblPrice.ToList();
             return View(allPrices);
         }  
-        public IActionResult CreateEditPrice()
+        public IActionResult CreateEditPrice(int? id)
         {
-          
+            var priceIdInDb = _context.TblPrice.SingleOrDefault(priceDataId => priceDataId.id == id);
+            if(id != null)
+            {
+            return View(priceIdInDb);
+            }
             return View();
         }  
         public IActionResult DeletePrice(int id)
@@ -31,7 +35,14 @@ namespace PriceTrackerWithMySQL.Controllers
         } 
         public IActionResult CreateEditPriceForm(PriceModel model)
         {
+            if(model.id == 0)
+            {
             _context.TblPrice.Add(model);
+            }
+            else
+            {
+            _context.TblPrice.Update(model);
+            }
             _context.SaveChanges();
             return RedirectToAction("IndexPrice");
         }
