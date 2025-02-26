@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PriceTrackerWithMySQL.Data;
+
 namespace PriceTrackerWithMySQL
 {
     public class Program
@@ -8,6 +11,8 @@ namespace PriceTrackerWithMySQL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            var connectionString = builder.Configuration.GetConnectionString("MySQLConn");
+            builder.Services.AddDbContext<PriceTrackerDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             var app = builder.Build();
 

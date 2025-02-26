@@ -1,8 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Create Edit Page";
 }
+@model PriceTrackerWithMySQL.Models.PriceModel
 
 <div class="text-center">
     <h1 class="display-4">Create Edit</h1>
-
+</div>
+<div>
+    <form asp-controller="Price" asp-action="CreateEditPriceForm">
+        <label class="mt-4">Id</label>
+        <input class="form-control mt-4" placeholder="0" type="number" asp-for="id" />
+        <label class="mt-4">Product Name</label>
+        <input class="form-control mt-4" placeholder="Name" type="text" asp-for="name" />
+        <label class="mt-4">Description</label>
+        <input class="form-control mt-4" placeholder="Description" type="text" asp-for="description" />
+        <label class="mt-4">Price</label>
+        <input class="form-control mt-4" placeholder="0" type="number" asp-for="price" />
+        <button class="submit-btn" type="submit">Submit</button>
+    </form>
 </div>

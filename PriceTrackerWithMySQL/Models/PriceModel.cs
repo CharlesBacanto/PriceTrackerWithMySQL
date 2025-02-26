@@ -1,6 +1,6 @@
 ﻿namespace PriceTrackerWithMySQL.Models
 {
-    public class Price
+    public class PriceModel
     {
         public int id { get; set; }
 

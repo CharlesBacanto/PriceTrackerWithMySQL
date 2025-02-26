@@ -1,8 +1,36 @@
 ﻿@{
     ViewData["Title"] = "Price List Page";
 }
-
+@model List<PriceModel>
 <div class="text-center">
     <h1 class="display-4">Price Master List</h1>
-
 </div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(var priceData in Model)
+            {
+                <tr>
+                    <td>@priceData.id</td>
+                    <td>@priceData.name</td>
+                    <td>@priceData.description</td>
+                    <td>@priceData.price</td>
+                    <td>
+                        <a class="btn" asp-action="CreateEditPrice" asp-controller="Price" asp-route-id="@priceData.id">Edit</a>
+                        <a class="btn" asp-action="Delete" asp-controller="Price" asp-route-id="@priceData.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
