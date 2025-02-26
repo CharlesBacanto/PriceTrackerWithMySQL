@@ -14,7 +14,8 @@ namespace PriceTrackerWithMySQL.Controllers
         }
         public IActionResult IndexPrice()
         {
-            return View();
+            var allPrices = _context.TblPrice.ToList();
+            return View(allPrices);
         }  
         public IActionResult CreateEditPrice()
         {
