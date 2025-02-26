@@ -8,8 +8,7 @@
 </div>
 <div>
     <form asp-controller="Price" asp-action="CreateEditPriceForm">
-        <label class="mt-4">Id</label>
-        <input class="form-control mt-4" placeholder="0" type="number" asp-for="id" />
+        <input hidden class="form-control mt-4" placeholder="0" type="number" asp-for="id" />
         <label class="mt-4">Product Name</label>
         <input class="form-control mt-4" placeholder="Name" type="text" asp-for="name" />
         <label class="mt-4">Description</label>

@@ -9,7 +9,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
+           
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
@@ -21,13 +21,12 @@
             foreach(var priceData in Model)
             {
                 <tr>
-                    <td>@priceData.id</td>
                     <td>@priceData.name</td>
                     <td>@priceData.description</td>
                     <td>@priceData.price</td>
                     <td>
                         <a class="btn" asp-action="CreateEditPrice" asp-controller="Price" asp-route-id="@priceData.id">Edit</a>
-                        <a class="btn" asp-action="Delete" asp-controller="Price" asp-route-id="@priceData.id">Delete</a>
+                        <a class="btn" asp-action="DeletePrice" asp-controller="Price" asp-route-id="@priceData.id">Delete</a>
                     </td>
                 </tr>
             }

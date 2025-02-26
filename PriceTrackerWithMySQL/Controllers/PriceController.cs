@@ -21,10 +21,18 @@ namespace PriceTrackerWithMySQL.Controllers
         {
           
             return View();
+        }  
+        public IActionResult DeletePrice(int id)
+        {
+            var priceIdInDb = _context.TblPrice.SingleOrDefault(priceDataId => priceDataId.id == id);
+            _context.Remove(priceIdInDb);
+            _context.SaveChanges();
+            return RedirectToAction("IndexPrice");
         } 
         public IActionResult CreateEditPriceForm(PriceModel model)
         {
             _context.TblPrice.Add(model);
+            _context.SaveChanges();
             return RedirectToAction("IndexPrice");
         }
     }
