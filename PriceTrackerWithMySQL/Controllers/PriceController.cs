@@ -40,16 +40,25 @@ namespace PriceTrackerWithMySQL.Controllers
         } 
         public IActionResult CreateEditPriceForm(PriceModel model)
         {
-            if(model.id == 0)
+            try
             {
-            _context.TblPrice.Add(model);
+
+                if (model.id == 0)
+                {
+                    _context.TblPrice.Add(model);
+                }
+                else
+                {
+                    _context.TblPrice.Update(model);
+                }
+                _context.SaveChanges();
             }
-            else
+            catch (Exception ex)
             {
-            _context.TblPrice.Update(model);
+                ViewBag.Error = ex.Message;
+                
             }
-            _context.SaveChanges();
-            return RedirectToAction("IndexPrice");
+                return RedirectToAction("IndexPrice");
         }
     }
 }

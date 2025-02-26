@@ -33,6 +33,7 @@ namespace PriceTrackerWithMySQL.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<double>("price")

@@ -11,8 +11,8 @@ using PriceTrackerWithMySQL.Data;
 namespace PriceTrackerWithMySQL.Migrations
 {
     [DbContext(typeof(PriceTrackerDbContext))]
-    [Migration("20250226070701_initialDb")]
-    partial class initialDb
+    [Migration("20250226102024_initalDb")]
+    partial class initalDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,7 @@ namespace PriceTrackerWithMySQL.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<double>("price")

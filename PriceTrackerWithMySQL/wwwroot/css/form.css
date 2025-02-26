@@ -1,0 +1,34 @@
+﻿body {
+}
+.label{
+    font-weight:bold;
+    margin-top: 8px;
+}
+.txt-box{
+   margin-top:4px;
+}
+.form-container {
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: lightblue;
+    width: 450px;
+    padding: 8px;
+    align-content: center;
+    margin-left:32%;
+}
+.name{
+
+}
+.description{
+ 
+}
+.name-price{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8px;
+}
+
+.buttons{
+   
+}

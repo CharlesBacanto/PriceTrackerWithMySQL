@@ -1,0 +1,47 @@
+﻿body {
+}
+thead{
+  border:solid;
+
+  text-align:center;
+  background-color:lightblue;
+}
+.th1{
+    border-right:solid;
+}
+.th2 {
+    border-right: solid;
+}
+.th3 {
+    border-right: solid;
+}
+.th4 {
+    
+}
+tbody{
+    border-left:solid;
+    border-right:solid;
+    border-bottom:solid;
+    text-align:center;
+    
+}
+.td1 {
+    border-right: solid;
+  
+    vertical-align:middle;
+}
+.td2 {
+    border-right: solid;
+
+    vertical-align:middle;
+}
+.td3 {
+    border-right: solid;
+
+    vertical-align:middle;
+}
+.td4{
+
+    vertical-align:middle;
+
+}

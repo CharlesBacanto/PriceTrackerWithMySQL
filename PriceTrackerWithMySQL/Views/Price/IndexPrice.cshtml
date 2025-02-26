@@ -2,18 +2,23 @@
     ViewData["Title"] = "Price List Page";
 }
 @model List<PriceModel>
+<link rel="stylesheet" href="~/css/tables.css" />
+<link rel="stylesheet" href="~/css/buttons.css" />
 <div class="text-center">
     <h1 class="display-4">Price Master List</h1>
 </div>
 <br />
+<div>
+    <p>@ViewBag.Error</p>
+</div>
 <table class="table">
     <thead>
         <tr>
+            <th class="th1">Name</th>
+            <th class="th2">Description</th>
+            <th class="th3">Price</th>
+            <th class="th4">Action</th>
            
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,15 +26,16 @@
             foreach(var priceData in Model)
             {
                 <tr>
-                    <td>@priceData.name</td>
-                    <td>@priceData.description</td>
-                    <td>@priceData.price</td>
-                    <td>
-                        <a class="btn" asp-action="CreateEditPrice" asp-controller="Price" asp-route-id="@priceData.id">Edit</a>
-                        <a class="btn" asp-action="DeletePrice" asp-controller="Price" asp-route-id="@priceData.id">Delete</a>
+                    <td class="td1">@priceData.name</td>
+                    <td class="td2">@priceData.description</td>
+                    <td class="td3">@priceData.price</td>
+                    <td class="td4">
+                        <a class="btn edit-btn" asp-action="CreateEditPrice" asp-controller="Price" asp-route-id="@priceData.id">Edit</a>
+                        <a class="btn delete-btn" asp-action="DeletePrice" asp-controller="Price" asp-route-id="@priceData.id">Delete</a>
                     </td>
                 </tr>
             }
         }
     </tbody>
 </table>
+<a class="btn create-btn" asp-action="CreateEditPrice" asp-controller="Price">Create</a>
